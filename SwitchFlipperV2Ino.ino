@@ -179,3 +179,7 @@ void getState(BridgeClient client){
   client.print(json);
 }
 
+void flip(BridgeClient client){
+  pin = client.parseInt(); //read pin number from uri
+  digitalWrite(pin, !digitalRead(pin))  
+}
