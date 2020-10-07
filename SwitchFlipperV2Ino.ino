@@ -88,6 +88,10 @@ void process(BridgeClient client) {
     Serial.println("in it");
     getState(client);
   }
+
+  if(command == "flip"){
+    flip(client);
+  }
   
 }
 
@@ -181,5 +185,6 @@ void getState(BridgeClient client){
 
 void flip(BridgeClient client){
   pin = client.parseInt(); //read pin number from uri
-  digitalWrite(pin, !digitalRead(pin))  
+  digitalWrite(pin, !digitalRead(pin));
+  client.print(digitalRead(pin));
 }
