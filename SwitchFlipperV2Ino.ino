@@ -1,5 +1,5 @@
 /*
- * good working
+ * Modified by Ashley to add /flip/12
   Arduino Yún Bridge example
 
   This example for the YunShield/Yún shows how 
@@ -184,6 +184,7 @@ void getState(BridgeClient client){
 }
 
 void flip(BridgeClient client){
+  int pin;
   pin = client.parseInt(); //read pin number from uri
   digitalWrite(pin, !digitalRead(pin));
   client.print(digitalRead(pin));
